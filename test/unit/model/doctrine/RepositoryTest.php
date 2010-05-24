@@ -200,28 +200,28 @@ $repository = RepositoryTable::getInstance()->findOneByName('testrepo');
 $t->diag('getCacheKey()');
 $t->is(
     $repository->getCacheKey(),
-    '#foo',
-    'キャッシュキーは結合パスの/を#に替えたもの'
+    '--foo',
+    'キャッシュキーは結合パスの/を--に替えたもの'
     );
 
 $repository->setBindPath('');
 $t->is(
     $repository->getCacheKey(),
-    '#',
-    '結合パスが空の場合は、#のみに変換。（/に結合とみなす）'
+    '--',
+    '結合パスが空の場合は、--のみに変換。（/に結合とみなす）'
     );
 
 $repository->setBindPath('/');
 $t->is(
     $repository->getCacheKey(),
-    '#',
-    '結合パスが/の場合は、#のみに変換。'
+    '--',
+    '結合パスが/の場合は、--のみに変換。'
     );
 $repository->setBindPath('/test1/test2');
 $t->is(
     $repository->getCacheKey(),
-    '#test1#test2',
-    '結合パスが/の場合は、#のみに変換。'
+    '--test1--test2',
+    '結合パス変換。'
     );
 
 

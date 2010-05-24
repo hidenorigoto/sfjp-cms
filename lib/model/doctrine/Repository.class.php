@@ -44,11 +44,11 @@ class Repository extends BaseRepository {
      */
     public function getCacheKey()
     {
-        // 結合するパスの/を#に変換する。
+        // 結合するパスの/を--に変換する。
         if ($path = $this->getBindPath()) {
-            return str_replace('/', '#', $path);
+            return str_replace('/', '--', $path);
         }else {
-            return '#';
+            return '--';
         }
     }
 
