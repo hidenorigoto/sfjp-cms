@@ -1,0 +1,107 @@
+Repository:
+  actAs:
+    Timestampable: 
+  columns:
+    id:
+      primary: true
+      unsigned: true
+      type: integer
+      notnull: true
+      autoincrement: true
+    name:
+      type: string
+    repository:
+      type: string(256)
+      notnull: true
+    subdirectory:
+      type: string(256)
+    bind_path:
+      type: string(128)
+      notnull: true
+    settings_json:
+      type: string(512)
+    force_update:
+      default: false
+      type: boolean
+    force_clone:
+      default: false
+      type: boolean
+Page:
+  actAs:
+    Timestampable: 
+  columns:
+    id:
+      primary: true
+      unsigned: true
+      type: integer
+      notnull: true
+      autoincrement: true
+    repository_id:
+      unsigned: true
+      type: integer
+      notnull: true
+    path:
+      type: string(255)
+      notnull: true
+    content_raw:
+      type: clob
+    content_type:
+      type: string(32)
+    content_rendered:
+      type: clob
+    title:
+      type: string(255)
+    index_json:
+      type: string
+    last_updated:
+      type: timestamp
+  indexes:
+    IX_Page_1:
+      fields: [path]
+  relations:
+    Repository:
+      class: Repository
+      foreignAlias: Pages
+      foreignType: many
+      onDelete: CASCADE
+      type: one
+      local: repository_id
+      foreign: id
+Commit:
+  columns:
+    id:
+      primary: true
+      unsigned: true
+      type: integer
+      notnull: true
+      autoincrement: true
+    committed_at:
+      type: timestamp
+    author_handle:
+      type: string(255)
+    author_email:
+      type: string(255)
+    committer_handle:
+      type: string(255)
+    committer_email:
+      type: string(255)
+    commit_key:
+      type: string(255)
+    commit_url:
+      type: string(512)
+    page_id:
+      unsigned: true
+      type: integer
+      notnull: true
+  indexes:
+    IX_Commit_1:
+      fields: [commit_key, page_id]
+  relations:
+    Page:
+      class: Page
+      foreignAlias: Commits
+      foreignType: many
+      onDelete: CASCADE
+      type: one
+      local: page_id
+      foreign: id

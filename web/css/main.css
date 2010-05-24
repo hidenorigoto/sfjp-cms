@@ -1,0 +1,601 @@
+@charset 'UTF-8'
+
+/*base
+---------------------------------------------- */
+* {
+	margin: 0;
+	padding: 0;
+	zoom: 1;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	color: #666;
+	font-family: verdana,'ヒラギノ角ゴ Pro W3',Hiragino Kaku Gothic Pro,'ヒラギノ角ゴ Pro W6',Hiragino Kaku Gothic Pro-W6,HiraKakuPro-W3,HiraKakupro-W6,Osaka,'ＭＳ Ｐゴシック','HGP創英角ｺﾞｼｯｸUB','MS PGothic',Arial,Sans-Serif,'メイリオ','Meiryo';
+
+	/* Firefiox Safari Opera IE8... */
+	font-size: 14px;
+}
+
+a {
+	color: #09F;
+	border: none;
+  overflow: hidden;
+}
+
+img {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: middle;
+}
+
+h1,h2,h3,h4,h5,h6,form,p,ul,li,dl,dt,dd {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+	line-height: 1.6em;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+input[type="text"],
+input[type="password"],
+textarea {
+	border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border: 1px solid #ccc;
+	padding: 2px;
+	vertical-align: middle;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+textarea:focus{
+	background-color: #eee;
+}
+
+
+#all {
+	width: 100%;
+	background: url(../images/all_bg.png) repeat-x left top;
+}
+
+#content {
+	width: 950px;
+	margin: 0 auto;
+}
+
+#content_wrapper {
+	background: url(../images/all_bg_l.png) no-repeat -30px top;
+}
+
+
+/*top_menu
+---------------------------------------------- */
+#top_menu {
+	height: 50px;
+	text-align: right;
+	background: url(../images/header_bg_top.png) no-repeat left top;
+}
+
+#top_menu_wrapper {
+	padding-top: 25px;
+}
+
+#s_text {
+	width: 140px;
+	padding-left: 20px;
+	background: url(../images/ico_search.png) no-repeat 5px center;
+	background-color: #D4CECB;
+}
+
+
+
+
+/*header
+---------------------------------------------- */
+#header_top {
+	height: 212px;
+	background: url(../images/header_bg_bottom.png) no-repeat left top;
+	position: relative;
+}
+
+#header_top_left {
+	position: absolute;
+	left: -95px;
+	top: -50px;
+	width: 95px;
+	height: 310px;
+	background: url(../images/all_bg_l.png) no-repeat;
+}
+
+
+
+
+/*h1
+---------------------------------------------- */
+#logo_top {
+	text-indent: -9999px;
+}
+
+#logo_top a {
+	width: 560px;
+	height: 90px;
+	background: url(../images/logo_top.png) no-repeat left top;
+	position: absolute;
+	left: 22px;
+	top: 40px;
+}
+
+
+/*h2
+---------------------------------------------- */
+#info_title {
+	color: #3E2200;
+	margin-bottom: 0.7em;
+	font-size: 24px;
+}
+
+.main_title {
+	width: 380px;
+	margin-top: 35px;
+	line-height: 0.8em;
+	color: #C60;
+	border-bottom: 1px solid #999;
+	font-size: 24px;
+	font-weight: bold;
+	font-family: 'ヒラギノ角ゴ Pro W6',Hiragino Kaku Gothic Pro-W6,HiraKakupro-W6,'ＭＳ Ｐゴシック','HGP創英角ｺﾞｼｯｸUB','MS PGothic',Arial,Sans-Serif,'メイリオ','Meiryo';
+	float: right;
+}
+
+.main_title_en {
+	font-size: 12px;
+	padding-left: 2px;
+	color: #999;
+}
+
+.ico_title {
+	float: left;
+}
+
+
+/*h3
+---------------------------------------------- */
+.side_title {
+	width: 145px;
+	margin-top: 25px;
+	line-height: 1em;
+	color: #3E2200;
+	border-bottom: 1px solid #999;
+	font-size: 16px;
+	font-weight: bold;
+	font-family: 'ヒラギノ角ゴ Pro W6',Hiragino Kaku Gothic Pro-W6,HiraKakupro-W6,'ＭＳ Ｐゴシック','HGP創英角ｺﾞｼｯｸUB','MS PGothic',Arial,Sans-Serif,'メイリオ','Meiryo';
+	float: right;
+}
+.side_title2 {
+	width: 200px;
+	margin-top: 25px;
+	margin-bottom: 10px;
+	line-height: 1em;
+	color: #3E2200;
+	border-bottom: 1px solid #999;
+	font-size: 16px;
+	font-weight: bold;
+	font-family: 'ヒラギノ角ゴ Pro W6',Hiragino Kaku Gothic Pro-W6,HiraKakupro-W6,'ＭＳ Ｐゴシック','HGP創英角ｺﾞｼｯｸUB','MS PGothic',Arial,Sans-Serif,'メイリオ','Meiryo';
+}
+
+.side_title_en {
+	font-size: 10px;
+	padding-left: 2px;
+	color: #999;
+}
+
+#release {
+	width: auto;
+	float: none;
+	margin: 10px 0;
+	padding: 10px 0 7px 0;
+	border-top: 1px solid #3E2200;
+	border-bottom: 1px solid #3E2200;
+	zoom: 1;
+}
+
+.pageindex ol {
+  padding-left: 1em;
+}
+.pageindex ol li {
+  list-style-type: decimal;
+}
+.pageindex ul {
+  padding-left: 1em;
+}
+.pageindex ul li {
+  list-style-type: square;
+}
+
+.pageindex ul, .pageindex ol {
+  margin-top: 0;
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+
+
+
+
+/*navbar
+---------------------------------------------- */
+#navbar {
+	width: 950px;
+	height: 48px;
+	background: url(../images/navbar_bg_top.png) no-repeat left top;
+	position: relative;
+	overflow: hidden;
+}
+
+#navbar ul {
+	text-align: center;
+	position: relative;
+	left: 50%;
+	float: left;
+}
+
+#navbar ul li {
+	line-height: 2em;
+	margin-right: 1.3em;
+	margin-top: 5px;
+	position: relative;
+	left: -50%;
+	float: left;
+}
+
+#navbar ul li a { line-height: 2.5em; display: block; color: #999; text-decoration: none; }
+#navbar ul li a:hover { color: #09F; }
+#navbar ul li a.this { color: #09F; background: url(../images/nav_arrow.png) no-repeat center bottom; }
+
+
+
+/*info
+---------------------------------------------- */
+#info {
+	width: 715px;
+	margin: 0 0 50px 5px;
+	clear: both;
+}
+
+#info p {
+	color: #3E2200;
+}
+
+
+/*main_content
+---------------------------------------------- */
+#main {
+	width: 100%;
+	margin-top: 10px;
+}
+
+#main_content {
+	width: 480px;
+	margin-right: 25px;
+	margin-bottom: 50px;
+	float: left;
+}
+#main_content2 {
+	width: 690px;
+	margin-right: 25px;
+	margin-bottom: 50px;
+	float: left;
+}
+
+#main_content2 ol {
+  padding-left: 1em;
+}
+#main_content2 ol li {
+  list-style-type: decimal;
+}
+#main_content2 ul {
+  padding-left: 1em;
+}
+#main_content2 ul li {
+  list-style-type: square;
+}
+
+#main_content2 pre {
+  width: 95%;
+}
+
+.article {
+	width: 100%;
+	margin-bottom: 30px;
+}
+
+ul.list_main {
+	margin-left: 15px;
+	padding-top: 15px;
+	width: 465px;
+	clear: both;
+}
+
+ul.list_main li {
+	text-indent: -8em;
+	/text-indent: -7.5em;
+	margin-left: 8em;
+	/margin-left: 7.5em;
+	margin-bottom: 0.6em;
+}
+
+.article dl {
+	margin-left: 15px;
+	padding-top: 15px;
+	clear: both;
+}
+
+.article dl dt {
+	margin-right: 10px;
+	margin-bottom: 0.6em;
+	/margin-bottom: 0;
+	float: left;
+}
+
+.article dl dd {
+	width: 400px;
+	margin-bottom: 0.6em;
+	/margin-bottom: 0;
+	padding: 2px 0;
+	float: left;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+#bl_list_main {
+	overflow: hidden;
+}
+
+
+ul.list_main_blog {
+	margin-left: 15px;
+	padding-top: 15px;
+	width: 465px;
+	clear: both;
+}
+
+ul.list_main_blog li {
+	margin-left: 36px;
+	text-indent: -36px;
+	margin-bottom: 0.8em;
+}
+
+.thumb_blog {
+	margin-right: 7px;
+}
+
+
+/*side_2
+---------------------------------------------- */
+.side {
+	width: 210px;
+	padding-top: 16px;
+	margin-bottom: 50px;
+	font-size: 12px;
+	float: left;
+}
+
+#side_2 {
+	margin-right: 25px;
+}
+
+.article ul.list_side {
+	margin-left: 15px;
+	padding-top: 10px;
+	width: 183px;
+	clear: both;
+}
+
+.article ul.list_side li {
+	margin-left: 12px;
+	text-indent: -12px;
+	margin-bottom: 0.4em;
+}
+
+#all .more_link {
+	text-align: right;
+	background: none;
+}
+
+
+
+
+.article ul.b_list_side {
+	margin-left: 15px;
+	padding-top: 15px;
+	clear: both;
+}
+
+.article ul.b_list_side li {
+	width: 100%;
+	padding: 5px 0;
+	background: none;
+	border-bottom: 1px solid #ccc;
+	overflow: hidden;
+}
+
+.article ul.b_list_side li .books_data {
+	overflow: hidden;
+}
+
+
+.article ul.b_list_side li img.books {
+	margin-right: 5px;
+	float: left;
+}
+
+.article ul.b_list_side li p.books_name{
+	white-space: normal;
+}
+
+.article ul.b_list_side li p.price {
+	color: #900;
+	margin-top: 5px;
+	font-weight: bold;
+}
+
+
+/*content_footer
+---------------------------------------------- */
+#content_footer {
+    margin-top: 50px;
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+    padding: 10px 10px 10px 10px;
+    background: #EEE;
+}
+#content_footer h2 {
+    font-size: 0.9em;
+    font-weight: normal;
+    margin-bottom: 5px;
+}
+#content_footer ul li {
+    list-style-type: none;
+}
+#content_footer li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.timestamp {
+    float: right;
+    font-size: 0.7em;
+}
+
+
+
+/*side_1
+---------------------------------------------- */
+.release {
+	width: 210px;
+	padding-top: 10px;
+	margin-bottom: 7px;
+	background: url(../images/release_bg_top.png) no-repeat left top;
+}
+
+.release_wrapper {
+	background: url(../images/release_bg_middle.png) repeat-y left top;
+}
+
+.release_content {
+	background: url(../images/release_bg_bottom.png) no-repeat left bottom;
+	padding: 0 25px 30px 25px;
+	/padding-top: 10px;
+	clear: both;
+	overflow: hidden;
+}
+
+.release li {
+	line-height: 2em;
+	list-style: outside;
+	list-style-type: disc;
+	margin-left: 1em;
+
+}
+
+.side_banner {
+	margin-bottom: 10px;
+}
+
+
+/*footer
+---------------------------------------------- */
+#footer {
+	width: 100%;
+	height: 140px;
+	1margin-top: 50px;
+	background: url(../images/footer_bg.png) repeat-x left top;
+	clear: both;
+}
+
+#footer_wrapper {
+	width: 950px;
+	height: 140px;
+	margin: 0 auto;
+	background: url(../images/footer_wrapper_bg.png) repeat-x left top;
+	position: relative;
+}
+
+#footer_left {
+	width: 94px;
+	height: 140px;
+	background: url(../images/footer_bg_left.png) no-repeat left top;
+	position: absolute;
+	left: -94px;
+}
+
+#footer_right {
+	width: 94px;
+	height: 140px;
+	background: url(../images/footer_bg_right.png) no-repeat left top;
+	position: absolute;
+	right: -94px;
+}
+
+
+#f_navbar {
+	width: 950px;
+	position: relative;
+	overflow: hidden;
+}
+
+#f_navbar ul {
+	text-align: center;
+	position: relative;
+	left: 50%;
+	float: left;
+}
+
+#f_navbar ul li {
+	padding-top: 1em;
+	margin-right: 1.5em;
+	font-size: 12px;
+	position: relative;
+	left: -50%;
+	float: left;
+}
+
+#f_navbar ul li a { line-height: 3em; display: block; color: #999; text-decoration: none; }
+#f_navbar ul li a:hover { color: #09F; }
+#f_navbar ul li a.this {  color: #09F; background: url(../images/nav_arrow_2.png) no-repeat center top; }
+
+#copy {
+	text-align: center;
+	font-size: 11px;
+	line-height: 2em;
+	position: absolute;
+	bottom: 15px;
+	/left: 0;
+	width: 100%;
+	text-align: center;
+}
+
+
+
+.githubinfo {
+    margin-top: 15px;
+}
+
+.githubinfo img {
+    float: left;
+    margin-top: 15px;
+    margin-right: 10px;
+}
+
+.githubinfo ul {
+    margin-left: 45px;
+}
+.githubinfo li {
+    display: block !important;
+    font-size: 0.8em;
+}

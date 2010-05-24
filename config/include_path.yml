@@ -1,0 +1,2 @@
+include_path:
+  VersionControl_Git: %SF_LIB_DIR%/vendor/pear/VersionControl_Git

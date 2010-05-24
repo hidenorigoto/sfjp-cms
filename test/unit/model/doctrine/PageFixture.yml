@@ -1,0 +1,74 @@
+Repository:
+  repo1:
+    name:             testrepo
+    bind_path:        /foo
+    repository:       git://github.com/hidenorigoto/test.git
+
+Page:
+  page1:
+    Repository:       repo1
+    path:             /foo/bar
+    index_json:       '{"test":"testtext"}',
+    content_type:     markdown
+    title:            testtitle
+
+  page2:
+    Repository:       repo1
+    path:             /foo/bar2
+    content_type:     html
+    title:            testtitle2
+
+  page3:
+    Repository:       repo1
+    path:             /foo/baz
+    content_type:     markdown
+    title:            testtitle3
+
+
+
+Commit:
+  commit1:
+    committed_at:     '2010-05-09 21:28:43'
+    author_handle:    Hidenori Goto
+    author_email:     hidenorigoto@gmail.com
+    committer_handle: hidenori
+    committer_email:  hidenori@innx.co.jp
+    commit_key:       commit1
+    Page:             page1
+
+  commit2:
+    committed_at:     '2010-05-10 09:15:35'
+    author_handle:    Hidenori Goto
+    author_email:     hidenorigoto@gmail.com
+    committer_handle: hidenori2
+    committer_email:  hidenori2@innx.co.jp
+    commit_key:       commit2
+    Page:             page1
+
+  commit3:
+    committed_at:     '2010-05-11 09:15:35'
+    author_handle:    Hidenori Goto
+    author_email:     hidenorigoto@gmail.com
+    committer_handle: hidenori2
+    committer_email:  hidenori2@innx.co.jp
+    commit_key:       commit3
+    Page:             page1
+
+  commit4:
+    committed_at:     '2010-05-13 09:15:35'
+    author_handle:    Hidenori Goto
+    author_email:     hidenorigoto@gmail.com
+    committer_handle: hidenori2
+    committer_email:  hidenori2@innx.co.jp
+    commit_key:       commit4
+    Page:             page2
+
+  commit5:
+    committed_at:     '2010-05-12 09:15:35'
+    author_handle:    Hidenori Goto
+    author_email:     hidenorigoto@gmail.com
+    committer_handle: hidenori2
+    committer_email:  hidenori2@innx.co.jp
+    commit_key:       commit5
+    Page:             page3
+

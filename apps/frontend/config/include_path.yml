@@ -1,0 +1,2 @@
+include_path:
+  Helpers: %SF_LIB_DIR%/helper/

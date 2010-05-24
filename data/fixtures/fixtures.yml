@@ -1,0 +1,10 @@
+Repository:
+  repo1:
+    name: ユーザー会メイン
+    bind_path:
+    repository: git://github.com/hidenorigoto/sfjp-doc-main.git
+
+  repo2:
+    name: 入門ドキュメント
+    bind_path: /docs/for-beginners
+    repository: git://github.com/hidenorigoto/sfjp-doc-for-beginners.git

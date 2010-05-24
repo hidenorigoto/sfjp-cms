@@ -1,0 +1,22 @@
+Repository:
+  repo1:
+    name:             testrepo
+    bind_path:        /foo
+    repository:       git://github.com/hidenorigoto/test.git
+
+  repo2:
+    name:             testrepo2
+    bind_path:        /foo/test
+    repository:       git://github.com/hidenorigoto/test2.git
+
+Page:
+  page1:
+    Repository:       repo1
+    path:             /foo/bar
+    index_json:       '{"test":"testtext"}',
+    content_type:     markdown
+
+  page2:
+    Repository:       repo1
+    path:             /foo/bar2
+    content_type:     html

@@ -1,0 +1,12 @@
+autoload:
+  # VersionControl_Git
+  VersionControl_Git:
+    name:           VersionControl_Git
+    path:           %SF_LIB_DIR%/vendor/pear/VersionControl_Git
+    recursive:      true
+  # sfSympalRenderingPlugin
+  markdown:
+    name:           sfSympalRenderingPlugin
+    path:           %SF_LIB_DIR%/vendor/sfSympalRenderingPlugin
+    recursive:      true
+

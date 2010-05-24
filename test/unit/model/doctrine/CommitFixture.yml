@@ -1,0 +1,28 @@
+Repository:
+  repo1:
+    name:             testrepo
+
+Page:
+  page1:
+    Repository:       repo1
+    path:             /foo/bar
+
+Commit:
+  commit1:
+    committed_at:     '2010-05-09 21:28:43'
+    author_handle:    Hidenori Goto
+    author_email:     hidenorigoto@gmail.com
+    committer_handle: hidenori
+    committer_email:  hidenori@innx.co.jp
+    commit_key:       commit1
+    Page:             page1
+
+  commit2:
+    committed_at:     '2010-05-10 09:15:35'
+    author_handle:    Hidenori Goto
+    author_email:     hidenorigoto@gmail.com
+    committer_handle: hidenori
+    committer_email:  hidenori@innx.co.jp
+    commit_key:       commit2
+    Page:             page1
+

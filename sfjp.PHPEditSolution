@@ -1,0 +1,4 @@
+<Solution version="3.4" name="sfjp" xmlns="http://www.waterproof.fr/PHPEdit/Solution">
+  <Item type="project" src="sfjp.PHPEditProject" />
+  <Item type="project" src="..\sfjp_temp\sfjp_temp.PHPEditProject" />
+</Solution>

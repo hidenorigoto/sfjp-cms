@@ -1,0 +1,41 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Repository
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          repository
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+        name:
+          label: リポジトリ名
+        repository:
+          label: リポジトリURL
+        subdirectory:
+          label: リポジトリ内で使用するサブディレクトリ
+          help: リポジトリ全体を使用する場合は空にしてください。
+        bind_path:
+          label: 結合パス
+          help:  コンテンツをマップするURLパスを指定します。例：/doc/beginner
+        force_update:
+          label: 強制的に更新する
+        force_clone:
+          label: 強制的にcloneする
+      list:
+        title: 登録されているリポジトリの一覧
+        display: [=id, =name, bind_path, repository]
+      filter:
+        class: false
+      form:
+        display: [name, repository, subdirectory, bind_path, force_update, force_clone]
+      edit:
+        title: リポジトリの編集
+      new:
+        title: リポジトリの新規追加

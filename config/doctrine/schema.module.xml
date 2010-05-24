@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<orm-designer version="1.3.3.363">
+
+  <module import-format="DoctrineYml" import-path="schema.yml" name="Default Project" visBkColor="15989236" visSizeX="0" visSizeX2="500" visSizeY="0" visSizeY2="428">
+    <table name="Repository" visPositionX="50" visPositionY="50" visSizeX="0" visSizeX2="116" visSizeY="0" visSizeY2="73">
+      <column auto-increment="true" name="id" primary="true" required="true" type="integer">
+        <orm-properties>
+          <attribute name="unsigned">true</attribute>
+        </orm-properties>
+      </column>
+      <column description="このバインドの設定名。" name="name" type="string"/>
+      <column description="取得するリポジトリURL。" name="repository" required="true" size="256" type="string"/>
+      <column description="取得したリポジトリ内の、このバインドで使用するサブディレクトリ。何も指定しない場合はルートからバインドされる。" name="subdirectory" size="256" type="string"/>
+      <column description="このリポジトリの内容を結合するURLのパス" name="bind_path" required="true" size="128" type="string"/>
+      <column description="このリポジトリの設定値" name="settings_json" size="512" type="string"/>
+      <column default="false" description="更新要求フラグ" name="force_update" type="boolean"/>
+      <column default="false" description="強制clone再実行フラグ" name="force_clone" type="boolean"/>
+      <orm-properties>
+        <attribute name="actAs">
+          <attribute name="Timestampable"/>
+        </attribute>
+      </orm-properties>
+    </table>
+    <table name="Page" visPositionX="300" visPositionY="50" visSizeX="0" visSizeX2="123" visSizeY="0" visSizeY2="115">
+      <column auto-increment="true" name="id" primary="true" required="true" type="integer">
+        <orm-properties>
+          <attribute name="unsigned">true</attribute>
+        </orm-properties>
+      </column>
+      <column name="repository_id" required="true" type="integer">
+        <orm-properties>
+          <attribute name="unsigned">true</attribute>
+        </orm-properties>
+      </column>
+      <column name="path" required="true" size="255" type="string"/>
+      <column name="content_raw" type="clob"/>
+      <column name="content_type" size="32" type="string"/>
+      <column name="content_rendered" type="clob"/>
+      <column name="title" size="255" type="string"/>
+      <column description="このコンテンツ本体の索引" name="index_json" type="string"/>
+      <column name="last_updated" type="timestamp"/>
+      <index name="IX_Page_1" unique="false">
+        <index-column name="path"/>
+      </index>
+      <orm-properties>
+        <attribute name="actAs">
+          <attribute name="Timestampable"/>
+        </attribute>
+      </orm-properties>
+    </table>
+    <table name="Commit" visPositionX="300" visPositionY="263" visSizeX="0" visSizeX2="20" visSizeY="0" visSizeY2="20">
+      <column auto-increment="true" name="id" primary="true" required="true" type="integer">
+        <orm-properties>
+          <attribute name="unsigned">true</attribute>
+        </orm-properties>
+      </column>
+      <column name="committed_at" type="timestamp"/>
+      <column name="author_handle" size="255" type="string"/>
+      <column name="author_email" size="255" type="string"/>
+      <column name="committer_handle" size="255" type="string"/>
+      <column name="committer_email" size="255" type="string"/>
+      <column name="commit_key" size="255" type="string"/>
+      <column name="commit_url" size="512" type="string"/>
+      <column name="page_id" required="true" type="integer">
+        <orm-properties>
+          <attribute name="unsigned">true</attribute>
+        </orm-properties>
+      </column>
+      <index name="IX_Commit_1" unique="false">
+        <index-column name="commit_key"/>
+        <index-column name="page_id"/>
+      </index>
+    </table>
+    <foreign-key caption="Repository Page" from="Page" name="FK_Page_Repository_id" to="Repository">
+      <foreign-key-column from="repository_id" to="id"/>
+      <orm-properties>
+        <attribute name="onDelete">CASCADE</attribute>
+        <attribute name="localAlias">Repository</attribute>
+        <attribute name="foreignType">many</attribute>
+        <attribute name="type">one</attribute>
+        <attribute name="foreignAlias">Pages</attribute>
+      </orm-properties>
+    </foreign-key>
+    <foreign-key caption="Page Commit" from="Commit" name="FK_Commit_Page_id" to="Page">
+      <foreign-key-column from="page_id" to="id"/>
+      <orm-properties>
+        <attribute name="foreignAlias">Commits</attribute>
+        <attribute name="foreignType">many</attribute>
+        <attribute name="localAlias">Page</attribute>
+        <attribute name="type">one</attribute>
+        <attribute name="onDelete">CASCADE</attribute>
+      </orm-properties>
+    </foreign-key>
+  </module>
+
+</orm-designer>

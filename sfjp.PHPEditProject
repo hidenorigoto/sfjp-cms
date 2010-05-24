@@ -1,0 +1,34 @@
+<Project version="3.4" name="sfjp" xmlns="http://www.waterproof.fr/PHPEdit/Project">
+  <set:Settings version="3.4" xmlns:set="http://www.waterproof.fr/PHPEdit/Settings">
+    <set:Property key="Debugger">
+      <set:Property key="LocalFSRoot">
+        <set:Property key="ProjectRootRelative">
+          <set:Data>web</set:Data>
+        </set:Property>
+      </set:Property>
+      <set:Property key="LocalFSRootMode">
+        <set:Data>ProjectRootRelative</set:Data>
+      </set:Property>
+    </set:Property>
+    <set:Property key="Extension">
+      <set:Property key="Symfony">
+        <set:Property key="ProjectFrameworkVersion">
+          <set:Data>1.4</set:Data>
+        </set:Property>
+      </set:Property>
+    </set:Property>
+    <set:Property key="Languages">
+      <set:Property key="PHP">
+        <set:Property key="RootNamespace">
+          <set:Data>sfjp</set:Data>
+        </set:Property>
+      </set:Property>
+    </set:Property>
+    <set:Property key="Project">
+      <set:Property key="Framework">
+        <set:Data>Symfony</set:Data>
+      </set:Property>
+    </set:Property>
+  </set:Settings>
+  <RootDirectory path="" childrenHandling="Auto" />
+</Project>
