@@ -1,0 +1,8 @@
+cache/*
+log/*
+data/repos/*
+plugins/.*
+web/r/*
+web/*_dev.php
+web/.htaccess
+web/taskapp*
