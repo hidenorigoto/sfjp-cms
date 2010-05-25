@@ -58,6 +58,7 @@
             <p id="copy">
               Powered by <img src="<?php echo public_path('images/symfony_button.png') ?>" alt="synfony" /> <span style="font-size: 10px;">このホームページは日本Symfonyユーザー会運営事務局が運営しています</span><br />
               Copyright &copy; 2010 Symfony Japan. All rights reserved.
+              &nbsp;&nbsp;&nbsp;Bandwidth and hardware provided by <a href="http://www.asial.co.jp/">アシアル株式会社</a>
             </p>
           </div>
 
