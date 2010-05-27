@@ -49,6 +49,10 @@ class pageActions extends sfActions {
         // ページのコミットリストを取得する。
         $this->commits = $page->getCommits();
 
+        //  ページの属するディレクトリ内のコンテンツ一覧を取得する。
+        $dir_path = preg_replace('/^(.*?)[^\/]+$/i', '$1', $path);
+        $this->dir_pages = PageTable::getListFromPath($dir_path, 'file', 'asc', -1, false);
+
         // このページのタイトルを設定する。
         $this->getResponse()->setTitle($page->getTitle() . ' | 日本Symfonyユーザー会');
 

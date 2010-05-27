@@ -32,6 +32,26 @@
           </div>
           <!-- end .article -->
 
+          <div class="article">
+            <h3 class="side_title2">
+              <div>関連ページリスト</div>
+              <div class="side_title_en">Related Pages</div>
+            </h3>
+<ul class="list_side">
+<?php foreach ($dir_pages as $dir_page): ?>
+<?php if ($dir_page->getTitle() == '') continue; ?>
+<li><img src="<?php echo public_path('images/list_arrow_orange.png') ?>" alt="" /> <?php
+if ($dir_page->getId() === $page->getId()) {
+    echo $dir_page->getTitle();
+} else {
+    echo link_to_page($dir_page->getTitle(), $dir_page->getPath());
+}
+?></li>
+<?php endforeach; ?>
+</ul>
+          </div>
+          <!-- end .article -->
+
 <?php echo include_partial('global/global_block_docs', array('docs_pages'=>$docs_pages)) ?>
 
 <?php echo include_partial('global/global_block_books') ?>
