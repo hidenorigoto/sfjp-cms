@@ -7,3 +7,4 @@ web/*_dev.php
 web/.htaccess
 web/taskapp*
 config/databases.yml
+apps/frontend/templates/layout.php
