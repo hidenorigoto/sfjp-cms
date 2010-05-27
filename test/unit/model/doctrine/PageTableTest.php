@@ -22,7 +22,7 @@ $t->diag('findAll()');
 $list = $table->findAll();
 $t->is(
     count($list),
-    3,
+    4,
     'レコード全件取得'
     );
 
@@ -72,7 +72,7 @@ $t->ok(
     );
 $t->is(
     count($page_rec),
-    3,
+    4,
     'レコードの件数が正しい'
     );
 $page_rec = PageTable::getListFromPath('/foo/baｒ');
@@ -84,7 +84,7 @@ $t->is(
 $page_rec = PageTable::getListFromPath('/foo');
 $t->is(
     count($page_rec),
-    3,
+    4,
     '末尾にスラッシュを付加してマッチ'
     );
 $page1 = $page_rec[0];
@@ -112,9 +112,9 @@ $page1 = $page_rec[0];
 $page2 = $page_rec[1];
 $page3 = $page_rec[2];
 $t->ok(
-    ($page1->getTitle() === 'testtitle3') &&
-    ($page2->getTitle() === 'testtitle2') &&
-    ($page3->getTitle() === 'testtitle'),
+    ($page1->getTitle() === 'testtitle4') &&
+    ($page2->getTitle() === 'testtitle3') &&
+    ($page3->getTitle() === 'testtitle2'),
     '取得したレコードの順序(タイトルの降順)'
     );
 $page_rec = PageTable::getListFromPath('/foo', 'file', 'asc');
@@ -132,9 +132,9 @@ $page1 = $page_rec[0];
 $page2 = $page_rec[1];
 $page3 = $page_rec[2];
 $t->ok(
-    ($page1->getPath() === '/foo/baz') &&
-    ($page2->getPath() === '/foo/bar2') &&
-    ($page3->getPath() === '/foo/bar'),
+    ($page1->getPath() === '/foo/baz/test') &&
+    ($page2->getPath() === '/foo/baz') &&
+    ($page3->getPath() === '/foo/bar2'),
     '取得したレコードの順序(ファイル名の降順)'
     );
 $page_rec = PageTable::getListFromPath('/foo', 'commit', 'asc');
@@ -145,9 +145,9 @@ foreach ($page_rec as $pagetemp) {
     $pagetemp->getLastUpdated();
 }
 $t->ok(
-    ($page1->getPath() === '/foo/bar') &&
-    ($page2->getPath() === '/foo/baz') &&
-    ($page3->getPath() === '/foo/bar2'),
+    ($page1->getPath() === '/foo/baz/test') &&
+    ($page2->getPath() === '/foo/bar') &&
+    ($page3->getPath() === '/foo/baz'),
     '取得したレコードの順序(最終コミット日時の昇順)'
     );
 $page_rec = PageTable::getListFromPath('/foo', 'commit', 'desc');
@@ -187,6 +187,14 @@ $t->is(
     count($page_rec),
     2,
     '取得件数の指定'
+    );
+
+
+$page_rec = PageTable::getListFromPath('/foo/', '', '', -1, false);
+$t->is(
+    count($page_rec),
+    3,
+    'サブディレクトリ除外'
     );
 
 

@@ -48,20 +48,26 @@ class PageTable extends Doctrine_Table {
      * @param string $sort_key    title, commit, file
      * @param string $sort_order  asc, desc
      * @param integer $limit
+     * @param bool   $include_subdirectory
      * @return Doctrine_Collection (Page)
      */
     public static function getListFromPath($path,
         $sort_key = 'commit',
         $sort_order = 'desc',
-        $limit = -1)
+        $limit = -1,
+        $include_subdirectory = true)
      {
         //　パスの末尾にスラッシュを付加する
         $path .= (substr($path, -1, 1) !== '/') ? '/' : '';
 
         $query = Doctrine_Query::create()
                ->from('Page p')
-               ->where('p.path like ?', $path . '%')
                ;
+        if ($include_subdirectory) {
+            $query->where('p.path like ?', $path . '%');
+        } else {
+            $query->where('p.path regexp ?', sprintf('^%s[^/]+$', $path));
+        }
 
         switch ($sort_order) {
             case 'asc':

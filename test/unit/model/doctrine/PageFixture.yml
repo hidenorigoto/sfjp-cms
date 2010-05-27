@@ -24,6 +24,12 @@ Page:
     content_type:     markdown
     title:            testtitle3
 
+  page4:
+    Repository:       repo1
+    path:             /foo/baz/test
+    content_type:     markdown
+    title:            testtitle4
+
 
 
 Commit:
@@ -71,4 +77,13 @@ Commit:
     committer_email:  hidenori2@innx.co.jp
     commit_key:       commit5
     Page:             page3
+
+  commit6:
+    committed_at:     '2010-05-09 09:15:35'
+    author_handle:    Hidenori Goto
+    author_email:     hidenorigoto@gmail.com
+    committer_handle: hidenori2
+    committer_email:  hidenori2@innx.co.jp
+    commit_key:       commit6
+    Page:             page4
 
