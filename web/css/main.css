@@ -515,6 +515,7 @@ ul.list_main_blog li {
 	height: 140px;
 	1margin-top: 50px;
 	background: url(../images/footer_bg.png) repeat-x left top;
+	overflow: hidden;
 	clear: both;
 }
 

@@ -13,8 +13,8 @@
 <body>
 
 <div id="all">
-	<div id="content">
-  	<div id="content_wrapper">
+  <div id="content">
+    <div id="content_wrapper">
       <div id="top_menu">
         <div id="top_menu_wrapper">
         <!--
@@ -42,28 +42,28 @@
 <?php include_partial('global/global_menu', array('div_id'=>'navbar')) ?>
 
 <?php echo $sf_content ?>
-		</div>
+    </div>
     <!-- end #content_wrapper -->
-	</div>
+  </div>
   <!-- end #content -->
 
 
   <div id="footer">
    	<div id="footer_wrapper">
-    	<div id="footer_content">
-			  <div id="footer_left"></div>
-			  <div id="footer_right"></div>
-          <?php include_partial('global/global_menu', array('div_id'=>'f_navbar')) ?>
-          <div>
-            <p id="copy">
-              Powered by <img src="<?php echo public_path('images/symfony_button.png') ?>" alt="synfony" /> <span style="font-size: 10px;">このホームページは日本Symfonyユーザー会運営事務局が運営しています</span><br />
-              Copyright &copy; 2010 Symfony Japan. All rights reserved.
-              &nbsp;&nbsp;&nbsp;Bandwidth and hardware provided by <a href="http://www.asial.co.jp/">アシアル株式会社</a>
-            </p>
-          </div>
-
-
-    	</div>
+      <div id="footer_content">
+        <div style=" position: relative;">
+          <div id="footer_left"></div>
+          <div id="footer_right"></div>
+        </div>
+        <?php include_partial('global/global_menu', array('div_id'=>'f_navbar')) ?>
+        <div>
+          <p id="copy">
+            Powered by <img src="<?php echo public_path('images/symfony_button.png') ?>" alt="synfony" /> <span style="font-size: 10px;">このホームページは日本Symfonyユーザー会運営事務局が運営しています</span><br />
+            Copyright &copy; 2010 Symfony Japan. All rights reserved.
+            &nbsp;&nbsp;&nbsp;Bandwidth and hardware provided by <a href="http://www.asial.co.jp/">アシアル株式会社</a>
+          </p>
+        </div>
+      </div>
       <!-- end #footer_content -->
   	</div>
     <!-- end #footer_wrapper -->
