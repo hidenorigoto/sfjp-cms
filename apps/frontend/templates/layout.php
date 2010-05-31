@@ -58,7 +58,8 @@
         <?php include_partial('global/global_menu', array('div_id'=>'f_navbar')) ?>
         <div>
           <p id="copy">
-            Powered by <img src="<?php echo public_path('images/symfony_button.png') ?>" alt="synfony" /> <span style="font-size: 10px;">このホームページは日本Symfonyユーザー会運営事務局が運営しています</span><br />
+            Powered by <a href="http://www.symfony-project.org/"><img src="<?php echo public_path('images/symfony_button.png') ?>" alt="synfony" /></a>
+            &nbsp;&nbsp;このホームページは日本Symfonyユーザー会運営事務局が運営しています<br />
             Copyright &copy; 2010 Symfony Japan. All rights reserved.
             &nbsp;&nbsp;&nbsp;Bandwidth and hardware provided by <a href="http://www.asial.co.jp/">アシアル株式会社</a>
           </p>
