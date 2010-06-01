@@ -20,7 +20,7 @@ class feedActions extends sfActions {
 
         $feed = new sfAtom1Feed();
 
-        $feed->setTitle($this->getResponse()->getTitle());
+        $feed->setTitle('日本Symfonyユーザー会 コンテンツ更新情報');
         $feed->setLink($this->getController()->genUrl('@homepage'));
         $feed->setAuthorEmail('info@symfony.gr.jp');
         $feed->setAuthorName('日本Symfonyユーザー会');

@@ -7,6 +7,7 @@
 <?php include_title() ?>
 <?php include_stylesheets() ?>
 <?php include_javascripts() ?>
+<link rel="alternate" type="application/rss+xml" title="日本Symfonyユーザー会 コンテンツ更新情報"  href="<?php echo url_for('@feed'); ?>" /> 
 <link rel="shortcur icon" href="<?php echo public_path('images/favicon.ico') ?>" />
 </head>
 
