@@ -1,4 +1,2 @@
 all:
-  enabled:     true
-  with_layout: true
-  lifetime:    3600
+  enabled:   true

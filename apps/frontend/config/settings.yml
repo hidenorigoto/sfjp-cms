@@ -6,6 +6,7 @@ prod:
     no_script_name:         true
     logging_enabled:        false
     cache:                  true
+    etag:                   true
 
 dev:
   .settings:

@@ -1,7 +1,5 @@
-# You can find more information about this file on the symfony website:
-# http://www.symfony-project.org/reference/1_4/en/09-Cache
-
 default:
   enabled:     false
   with_layout: true
-  lifetime:    3600
+  lifetime:    43200
+  client_lifetime:  0
