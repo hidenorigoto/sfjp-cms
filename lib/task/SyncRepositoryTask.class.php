@@ -131,6 +131,7 @@ EOF;
 
         // ---------------------------------------------
         // ファイル別に処理
+        $new_commit_found = false;
         foreach ($files as $file) {
             $this->log(sprintf('ファイル：%s', $file));
             $info      = pathinfo($file);
@@ -229,6 +230,7 @@ EOF;
             if (!$new_commit_found) {
                 continue;
             }
+            $new_commit_found = true;
 
             $page->setContentType($type = PageTable::checkType($file));
             $content = file_get_contents($file_path);
@@ -307,6 +309,14 @@ EOF;
             $commit = CommitTable::getLatestCommit($page->getId());
             $page->setLastUpdated($commit->getCommittedAt());
             $page->save();
+        }
+
+
+        // 新しいコミットがあった場合、キャッシュを削除する。
+        if ($new_commit_found) {
+            $frontend_cache_dir = sfConfig::get('sf_cache_dir') . '/frontend/prod/template';
+            $cache = new sfFileCache(array('cache_dir' => $frontend_cache_dir));
+            $cache->clean();
         }
 
         $this->log(sprintf(
