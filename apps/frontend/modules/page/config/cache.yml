@@ -1,0 +1,9 @@
+page:
+  lifetime:    3600
+
+page_index:
+  lifetime:    3600
+
+all:
+  enabled:     true
+  with_layout: true
