@@ -28,8 +28,8 @@ class topActions extends sfActions {
      */
     public function executeIndex(sfWebRequest $request)
     {
-        $this->news_pages   = PageTable::getListFromPath('/news', 10);
-        $this->events_pages = PageTable::getListFromPath('/events', 10);
-        $this->blog_pages   = PageTable::getListFromPath('/blog', 10);
+        $this->news_pages   = PageTable::getListFromPath('/news', 'id', 'desc', 10);
+        $this->events_pages = PageTable::getListFromPath('/events', 'id', 'desc', 10);
+        $this->blog_pages   = PageTable::getListFromPath('/blog', 'id', 'desc', 10);
     }
 }
