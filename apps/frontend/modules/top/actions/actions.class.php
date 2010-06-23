@@ -2,9 +2,9 @@
 /**
  * top actions.
  *
- * @package prj
+ * @package sfjp-cms
  * @subpackage top
- * @author Your name here
+ * @author hidenorigoto
  * @version SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
 class topActions extends sfActions {
