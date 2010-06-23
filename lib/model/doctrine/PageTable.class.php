@@ -45,7 +45,7 @@ class PageTable extends Doctrine_Table {
      * パスが前方一致するページの一覧を取得する。
      *
      * @param string $path
-     * @param string $sort_key    title, commit, file
+     * @param string $sort_key    title, commit, create, file, id
      * @param string $sort_order  asc, desc
      * @param integer $limit
      * @param bool   $include_subdirectory
@@ -86,6 +86,12 @@ class PageTable extends Doctrine_Table {
                 break;
             case 'title':
                 $query->orderBy('p.title ' . $sort_order);
+                break;
+            case 'create':
+                $query->orderBy('p.created_at ' . $sort_order);
+                break;
+            case 'id':
+                $query->orderBy('p.id ' . $sort_order);
                 break;
             case 'commit':
             default:

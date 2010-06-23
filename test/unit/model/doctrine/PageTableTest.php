@@ -7,7 +7,7 @@ $configuration = ProjectConfiguration::getApplicationConfiguration('taskapp', 't
 new sfDatabaseManager($configuration);
 Doctrine_Core::loadData(dirname(__FILE__).'/PageFixture.yml');
 
-$t = new lime_test(46);
+$t = new lime_test(51);
 
 // getInstance
 $t->diag('getInstance()');
@@ -160,6 +160,68 @@ $t->ok(
     ($page3->getPath() === '/foo/bar'),
     '取得したレコードの順序(最終コミット日時の降順)'
     );
+
+
+$page_rec = PageTable::getListFromPath('/foo', 'id', 'asc');
+$page1 = $page_rec[0];
+$page2 = $page_rec[1];
+$page3 = $page_rec[2];
+$t->ok(
+    ($page1->getPath() === '/foo/bar') &&
+    ($page2->getPath() === '/foo/bar2') &&
+    ($page3->getPath() === '/foo/baz'),
+    '取得したレコードの順序(IDの昇順)'
+    );
+$page_rec = PageTable::getListFromPath('/foo', 'id', 'desc');
+$page1 = $page_rec[0];
+$page2 = $page_rec[1];
+$page3 = $page_rec[2];
+$t->ok(
+    ($page1->getPath() === '/foo/baz/test') &&
+    ($page2->getPath() === '/foo/baz') &&
+    ($page3->getPath() === '/foo/bar2'),
+    '取得したレコードの順序(IDの降順)'
+    );
+
+$page = PageTable::getFromPath('/foo/bar');
+$page->setCreatedAt('2010-01-01 01:02:03');
+$page->save();
+
+$page = PageTable::getFromPath('/foo/bar2');
+$page->setCreatedAt('2010-01-01 01:02:04');
+$page->save();
+
+$page = PageTable::getFromPath('/foo/baz');
+$page->setCreatedAt('2010-01-01 01:02:05');
+$page->save();
+
+$page = PageTable::getFromPath('/foo/baz/test');
+$page->setCreatedAt('2010-01-01 01:02:06');
+$page->save();
+
+
+$page_rec = PageTable::getListFromPath('/foo', 'create', 'asc');
+$page1 = $page_rec[0];
+$page2 = $page_rec[1];
+$page3 = $page_rec[2];
+$t->ok(
+    ($page1->getPath() === '/foo/bar') &&
+    ($page2->getPath() === '/foo/bar2') &&
+    ($page3->getPath() === '/foo/baz'),
+    '取得したレコードの順序(レコード作成日時の昇順)'
+    );
+$page_rec = PageTable::getListFromPath('/foo', 'create', 'desc');
+$page1 = $page_rec[0];
+$page2 = $page_rec[1];
+$page3 = $page_rec[2];
+$t->ok(
+    ($page1->getPath() === '/foo/baz/test') &&
+    ($page2->getPath() === '/foo/baz') &&
+    ($page3->getPath() === '/foo/bar2'),
+    '取得したレコードの順序(レコード作成日時の降順)'
+    );
+
+
 
 $page_rec = PageTable::getListFromPath('/foo', 'com;mit');
 $page1 = $page_rec[0];
