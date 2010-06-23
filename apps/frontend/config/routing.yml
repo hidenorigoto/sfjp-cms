@@ -6,6 +6,12 @@ feed:
   url:   /feed
   param: { module: feed, action: index }
 
+
+blog_list:
+  url:   /blog/
+  param: { module: blog, action: index }
+
+
 repository:
   class: sfDoctrineRouteCollection
   options:
@@ -14,29 +20,6 @@ repository:
     prefix_path:          /admin
     column:               id
     with_wildcard_routes: true
-
-#page3a:
-#  url:   /:key1/:key2/:key3/
-#  param: { module: page, action: page_index }
-#page3:
-#  url:   /:key1/:key2/:key3
-#  param: { module: page, action: page }
-#
-#
-#page2a:
-#  url:   /:key1/:key2/
-#  param: { module: page, action: page_index }
-#page2:
-#  url:   /:key1/:key2
-#  param: { module: page, action: page }
-#
-#
-#page1a:
-#  url:   /:key1/
-#  param: { module: page, action: page_index }
-#page1:
-#  url:   /:key1
-#  param: { module: page, action: page }
 
 sf_guard_signin:
   url:   /admin/login
