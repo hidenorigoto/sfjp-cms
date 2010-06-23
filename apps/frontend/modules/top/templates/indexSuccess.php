@@ -48,7 +48,7 @@
               <div>ブログ</div>
               <div class="main_title_en">Blogs Information</div>
             </h2>
-            <ul class="list_main_blog">
+            <ul class="list_main">
             <?php foreach ($blog_pages as $page): ?>
               <li><img src="<?php echo public_path('images/list_arrow_orange.png') ?>" alt="" />
               <?php echo $page->getDateTimeObject('last_updated')->format('Y/m/d') ?>
