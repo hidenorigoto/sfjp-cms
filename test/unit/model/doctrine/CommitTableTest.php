@@ -7,7 +7,7 @@ $configuration = ProjectConfiguration::getApplicationConfiguration('taskapp', 't
 new sfDatabaseManager($configuration);
 Doctrine_Core::loadData(dirname(__FILE__).'/CommitFixture.yml');
 
-$t = new lime_test(9);
+$t = new lime_test(12);
 
 // getInstance
 $t->diag('getInstance()');
@@ -64,6 +64,30 @@ $t->is(
     null,
     'ページIDに対応するコミットレコードがない場合は、null'
     );
+
+
+
+$commit = CommitTable::getFirstCommit($page->getId());
+
+$t->ok(
+    $commit instanceof Commit,
+    'コミットレコード取得成功'
+    );
+$t->is(
+    $commit->getCommitKey(),
+    'commit1',
+    'コミット日付が最初のレコード'
+    );
+
+$commit = CommitTable::getFirstCommit(-1);
+
+$t->is(
+    $commit,
+    null,
+    'ページIDに対応するコミットレコードがない場合は、null'
+    );
+
+
 
 // リレーション
 $commit = $table->findOneByCommitKey('commit1');

@@ -35,4 +35,21 @@ class CommitTable extends Doctrine_Table {
 
         return $query->fetchOne();
     }
+
+    /**
+     * CommitTable::getFirstCommit()
+     * 指定したページの最初のコミットレコードを取得する
+     *
+     * @param  integer $page_id
+     * @return Commit  コミットオブジェクト
+     */
+    public static function getFirstCommit($page_id)
+    {
+        $query = Doctrine_Query::create()
+               ->from('Commit c')
+               ->where('c.page_id = ?', $page_id)
+               ->orderBy('c.committed_at asc') ;
+
+        return $query->fetchOne();
+    }
 }
