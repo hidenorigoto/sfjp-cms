@@ -19,7 +19,7 @@
             <ul class="list_main">
             <?php foreach ($news_pages as $page): ?>
               <li><img src="<?php echo public_path('images/list_arrow_orange.png') ?>" alt="" />
-                <?php echo $page->getDateTimeObject('last_updated')->format('Y/m/d') ?>
+                <?php echo $page->getFormattedFirstCommitted() ?>
                 <?php echo link_to_page($page->getTitle(), $page->getPath()) ?></li>
             <?php endforeach; ?>
             </ul>
@@ -35,7 +35,7 @@
             <ul class="list_main">
             <?php foreach ($events_pages as $page): ?>
               <li><img src="<?php echo public_path('images/list_arrow_orange.png') ?>" alt="" />
-                              <?php echo $page->getDateTimeObject('last_updated')->format('Y/m/d') ?>
+                              <?php echo $page->getFormattedFirstCommitted() ?>
                               <?php echo link_to_page($page->getTitle(), $page->getPath()) ?></li>
             <?php endforeach; ?>
             </ul>
@@ -51,7 +51,7 @@
             <ul class="list_main">
             <?php foreach ($blog_pages as $page): ?>
               <li><img src="<?php echo public_path('images/list_arrow_orange.png') ?>" alt="" />
-              <?php echo $page->getDateTimeObject('last_updated')->format('Y/m/d') ?>
+              <?php echo $page->getFormattedFirstCommitted() ?>
               <?php echo link_to_page($page->getTitle(), $page->getPath()) ?></li>
             <?php endforeach; ?>
             </ul>
