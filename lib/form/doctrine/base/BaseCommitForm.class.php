@@ -5,10 +5,10 @@
  *
  * @method Commit getObject() Returns the current form's model object
  *
- * @package    prj
+ * @package    sfjp-cms
  * @subpackage form
- * @author     Your name here
- * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
+ * @author     hidenorigoto
+ * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 29553 2010-05-20 14:33:00Z Kris.Wallsmith $
  */
 abstract class BaseCommitForm extends BaseFormDoctrine
 {
@@ -27,7 +27,7 @@ abstract class BaseCommitForm extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
-      'id'               => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'id', 'required' => false)),
+      'id'               => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'committed_at'     => new sfValidatorDateTime(array('required' => false)),
       'author_handle'    => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'author_email'     => new sfValidatorString(array('max_length' => 255, 'required' => false)),

@@ -37,9 +37,9 @@
  * @method Commit    setPageId()           Sets the current record's "page_id" value
  * @method Commit    setPage()             Sets the current record's "Page" value
  * 
- * @package    prj
+ * @package    sfjp-cms
  * @subpackage model
- * @author     Your name here
+ * @author     hidenorigoto
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
 abstract class BaseCommit extends sfDoctrineRecord

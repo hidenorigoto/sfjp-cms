@@ -39,8 +39,12 @@
       <column name="title" size="255" type="string"/>
       <column description="このコンテンツ本体の索引" name="index_json" type="string"/>
       <column name="last_updated" type="timestamp"/>
-      <index name="IX_Page_1" unique="false">
+      <column default="0" name="last_updated_ym" type="integer"/>
+      <column name="first_committed" type="timestamp"/>
+      <column default="0" name="first_committed_ym" type="integer"/>
+      <index name="IX_Page_2" unique="false">
         <index-column name="path"/>
+        <index-column name="last_updated_ym"/>
       </index>
       <orm-properties>
         <attribute name="actAs">

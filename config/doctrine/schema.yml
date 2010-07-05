@@ -55,9 +55,17 @@ Page:
       type: string
     last_updated:
       type: timestamp
+    last_updated_ym:
+      default: 0
+      type: integer
+    first_committed:
+      type: timestamp
+    first_committed_ym:
+      default: 0
+      type: integer
   indexes:
-    IX_Page_1:
-      fields: [path]
+    IX_Page_2:
+      fields: [path, last_updated_ym]
   relations:
     Repository:
       class: Repository

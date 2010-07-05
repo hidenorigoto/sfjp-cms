@@ -14,35 +14,44 @@
  * @property string $title
  * @property string $index_json
  * @property timestamp $last_updated
+ * @property integer $last_updated_ym
+ * @property timestamp $first_committed
+ * @property integer $first_committed_ym
  * @property Repository $Repository
  * @property Doctrine_Collection $Commits
  * 
- * @method integer             getId()               Returns the current record's "id" value
- * @method integer             getRepositoryId()     Returns the current record's "repository_id" value
- * @method string              getPath()             Returns the current record's "path" value
- * @method clob                getContentRaw()       Returns the current record's "content_raw" value
- * @method string              getContentType()      Returns the current record's "content_type" value
- * @method clob                getContentRendered()  Returns the current record's "content_rendered" value
- * @method string              getTitle()            Returns the current record's "title" value
- * @method string              getIndexJson()        Returns the current record's "index_json" value
- * @method timestamp           getLastUpdated()      Returns the current record's "last_updated" value
- * @method Repository          getRepository()       Returns the current record's "Repository" value
- * @method Doctrine_Collection getCommits()          Returns the current record's "Commits" collection
- * @method Page                setId()               Sets the current record's "id" value
- * @method Page                setRepositoryId()     Sets the current record's "repository_id" value
- * @method Page                setPath()             Sets the current record's "path" value
- * @method Page                setContentRaw()       Sets the current record's "content_raw" value
- * @method Page                setContentType()      Sets the current record's "content_type" value
- * @method Page                setContentRendered()  Sets the current record's "content_rendered" value
- * @method Page                setTitle()            Sets the current record's "title" value
- * @method Page                setIndexJson()        Sets the current record's "index_json" value
- * @method Page                setLastUpdated()      Sets the current record's "last_updated" value
- * @method Page                setRepository()       Sets the current record's "Repository" value
- * @method Page                setCommits()          Sets the current record's "Commits" collection
+ * @method integer             getId()                 Returns the current record's "id" value
+ * @method integer             getRepositoryId()       Returns the current record's "repository_id" value
+ * @method string              getPath()               Returns the current record's "path" value
+ * @method clob                getContentRaw()         Returns the current record's "content_raw" value
+ * @method string              getContentType()        Returns the current record's "content_type" value
+ * @method clob                getContentRendered()    Returns the current record's "content_rendered" value
+ * @method string              getTitle()              Returns the current record's "title" value
+ * @method string              getIndexJson()          Returns the current record's "index_json" value
+ * @method timestamp           getLastUpdated()        Returns the current record's "last_updated" value
+ * @method integer             getLastUpdatedYm()      Returns the current record's "last_updated_ym" value
+ * @method timestamp           getFirstCommitted()     Returns the current record's "first_committed" value
+ * @method integer             getFirstCommittedYm()   Returns the current record's "first_committed_ym" value
+ * @method Repository          getRepository()         Returns the current record's "Repository" value
+ * @method Doctrine_Collection getCommits()            Returns the current record's "Commits" collection
+ * @method Page                setId()                 Sets the current record's "id" value
+ * @method Page                setRepositoryId()       Sets the current record's "repository_id" value
+ * @method Page                setPath()               Sets the current record's "path" value
+ * @method Page                setContentRaw()         Sets the current record's "content_raw" value
+ * @method Page                setContentType()        Sets the current record's "content_type" value
+ * @method Page                setContentRendered()    Sets the current record's "content_rendered" value
+ * @method Page                setTitle()              Sets the current record's "title" value
+ * @method Page                setIndexJson()          Sets the current record's "index_json" value
+ * @method Page                setLastUpdated()        Sets the current record's "last_updated" value
+ * @method Page                setLastUpdatedYm()      Sets the current record's "last_updated_ym" value
+ * @method Page                setFirstCommitted()     Sets the current record's "first_committed" value
+ * @method Page                setFirstCommittedYm()   Sets the current record's "first_committed_ym" value
+ * @method Page                setRepository()         Sets the current record's "Repository" value
+ * @method Page                setCommits()            Sets the current record's "Commits" collection
  * 
- * @package    prj
+ * @package    sfjp-cms
  * @subpackage model
- * @author     Your name here
+ * @author     hidenorigoto
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
 abstract class BasePage extends sfDoctrineRecord
@@ -86,12 +95,24 @@ abstract class BasePage extends sfDoctrineRecord
         $this->hasColumn('last_updated', 'timestamp', null, array(
              'type' => 'timestamp',
              ));
+        $this->hasColumn('last_updated_ym', 'integer', null, array(
+             'default' => 0,
+             'type' => 'integer',
+             ));
+        $this->hasColumn('first_committed', 'timestamp', null, array(
+             'type' => 'timestamp',
+             ));
+        $this->hasColumn('first_committed_ym', 'integer', null, array(
+             'default' => 0,
+             'type' => 'integer',
+             ));
 
 
-        $this->index('IX_Page_1', array(
+        $this->index('IX_Page_2', array(
              'fields' => 
              array(
               0 => 'path',
+              1 => 'last_updated_ym',
              ),
              ));
     }
