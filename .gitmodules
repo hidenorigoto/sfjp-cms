@@ -1,6 +1,0 @@
-[submodule "lib/vendor/symfony"]
-	path = lib/vendor/symfony
-	url = git://github.com/vjousse/symfony-1.4.git
-[submodule "lib/vendor/pear/VersionControl_Git"]
-	path = lib/vendor/pear/VersionControl_Git
-	url = git://github.com/ebihara/VersionControl_Git.git
