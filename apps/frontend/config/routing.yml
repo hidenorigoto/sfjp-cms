@@ -9,7 +9,27 @@ feed:
 
 blog_list:
   url:   /blog/
-  param: { module: blog, action: index }
+  param: { module: blog, action: index, page_type: 'blog' }
+
+blog_list_ym:
+  url:   /blog/:year/:month/
+  param: { module: blog, action: index, page_type: 'blog' }
+
+news_list:
+  url:   /news/
+  param: { module: blog, action: index, page_type: 'news' }
+
+news_list_ym:
+  url:   /news/:year/:month/
+  param: { module: blog, action: index, page_type: 'news' }
+
+events_list:
+  url:   /events/
+  param: { module: blog, action: index, page_type: 'events' }
+
+events_list_ym:
+  url:   /events/:year/:month/
+  param: { module: blog, action: index, page_type: 'events' }
 
 
 repository:
