@@ -1,2 +1,2 @@
 all:
-  enabled:   false;
+  enabled:   true;
