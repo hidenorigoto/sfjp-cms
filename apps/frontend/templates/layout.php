@@ -6,7 +6,7 @@
 <?php include_title() ?>
 <?php include_stylesheets() ?>
 <?php include_javascripts() ?>
-<link rel="alternate" type="application/rss+xml" title="日本Symfonyユーザー会 コンテンツ更新情報"  href="<?php echo url_for('@feed'); ?>" /> 
+<link rel="alternate" type="application/rss+xml" title="日本Symfonyユーザー会 コンテンツ更新情報"  href="<?php echo url_for('@feed'); ?>" />
 <link rel="shortcur icon" href="<?php echo public_path('images/favicon.ico') ?>" />
 </head>
 
@@ -59,7 +59,9 @@
         <div>
           <p id="copy">
             Powered by <a href="http://www.symfony-project.org/"><img src="<?php echo public_path('images/symfony_button.png') ?>" alt="synfony" /></a>
-            &nbsp;&nbsp;このホームページは日本Symfonyユーザー会運営事務局が運営しています<br />
+            <?php echo SYMFONY_VERSION ?>
+            &nbsp;&nbsp;
+            このホームページは日本Symfonyユーザー会運営事務局が運営しています<br />
             Copyright &copy; 2010 Symfony Japan. All rights reserved.
             &nbsp;&nbsp;&nbsp;Bandwidth and hardware provided by <a href="http://www.asial.co.jp/">アシアル株式会社</a>
           </p>
