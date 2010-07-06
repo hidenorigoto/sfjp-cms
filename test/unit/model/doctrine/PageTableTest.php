@@ -7,7 +7,7 @@ $configuration = ProjectConfiguration::getApplicationConfiguration('taskapp', 't
 new sfDatabaseManager($configuration);
 Doctrine_Core::loadData(dirname(__FILE__).'/PageFixture.yml');
 
-$t = new lime_test(51);
+$t = new lime_test(60);
 
 // getInstance
 $t->diag('getInstance()');
@@ -259,6 +259,40 @@ $t->is(
     'サブディレクトリ除外'
     );
 
+$page_rec = PageTable::getListFromPath('/foo', '', '', -1, true);
+$t->is(
+    count($page_rec),
+    4,
+    'サブディレクトリ含む'
+    );
+
+$page_rec = PageTable::getListFromPath('/foo', '', '', -1, true, '2000');
+$t->is(
+    count($page_rec),
+    0,
+    '年のみ指定（該当レコードなし）'
+    );
+
+$page_rec = PageTable::getListFromPath('/foo', '', '', -1, true, '', '05');
+$t->is(
+    count($page_rec),
+    0,
+    '月のみ指定（該当レコードなし）'
+    );
+$page_rec = PageTable::getListFromPath('/foo', '', '', -1, true, '2010', '05');
+$t->is(
+    count($page_rec),
+    4,
+    '年月指定'
+    );
+$page_rec = PageTable::getListFromPath('/foo', '', '', -1, true, '2010', '06');
+$t->is(
+    count($page_rec),
+    0,
+    '年月指定'
+    );
+
+
 
 
 // renderContent()
@@ -304,6 +338,26 @@ $t->ok(
 $t->diag('checkType()');
 $t->is(
     PageTable::checkType('test.markdown'),
+    'markdown',
+    'タイプ：マークダウン'
+    );
+$t->is(
+    PageTable::checkType('test.md'),
+    'markdown',
+    'タイプ：マークダウン'
+    );
+$t->is(
+    PageTable::checkType('test.mkd'),
+    'markdown',
+    'タイプ：マークダウン'
+    );
+$t->is(
+    PageTable::checkType('test.mdown'),
+    'markdown',
+    'タイプ：マークダウン'
+    );
+$t->is(
+    PageTable::checkType('test.mkdn'),
     'markdown',
     'タイプ：マークダウン'
     );

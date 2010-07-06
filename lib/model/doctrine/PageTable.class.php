@@ -44,18 +44,22 @@ class PageTable extends Doctrine_Table {
      * PageTable::getListFromPath()
      * パスが前方一致するページの一覧を取得する。
      *
-     * @param string $path
-     * @param string $sort_key    title, commit, create, file, id
-     * @param string $sort_order  asc, desc
-     * @param integer $limit
-     * @param bool   $include_subdirectory
+     * @param string $path       取得するページ一覧のパス
+     * @param string $sort_key   並べ替えキー  title, commit, create, file, id, first_committed
+     * @param string $sort_order 並べ替え順 asc, desc
+     * @param integer $limit     取得件数
+     * @param bool   $include_subdirectory サブディレクトリも対象とするか？
+     * @param string $year       年（初回コミット年月）
+     * @param string $month      月（初回コミット年月）
      * @return Doctrine_Collection (Page)
      */
     public static function getListFromPath($path,
         $sort_key = 'commit',
         $sort_order = 'desc',
         $limit = -1,
-        $include_subdirectory = true)
+        $include_subdirectory = true,
+        $year = '',
+        $month = '')
      {
         //　パスの末尾にスラッシュを付加する
         $path .= (substr($path, -1, 1) !== '/') ? '/' : '';
@@ -67,6 +71,10 @@ class PageTable extends Doctrine_Table {
             $query->where('p.path like ?', $path . '%');
         } else {
             $query->where('p.path regexp ?', sprintf('^%s[^/]+$', $path));
+        }
+
+        if ($year . $month !== '') {
+            $query->addWhere('p.first_committed_ym = ?', (int)($year . $month));
         }
 
         switch ($sort_order) {
@@ -94,8 +102,11 @@ class PageTable extends Doctrine_Table {
                 $query->orderBy('p.id ' . $sort_order);
                 break;
             case 'commit':
-            default:
                 $query->orderBy('p.last_updated ' . $sort_order);
+                break;
+            case 'first-committed':
+            default:
+                $query->orderBy('p.first_committed ' . $sort_order);
                 break;
         }
 
@@ -166,6 +177,10 @@ class PageTable extends Doctrine_Table {
         switch ($entension) {
             case '': // 拡張子がない場合はmarkdownとみなす
             case 'markdown':
+            case 'md':
+            case 'mkd':
+            case 'mdown':
+            case 'mkdn':
                 $type = 'markdown';
                 break;
             case 'html':
