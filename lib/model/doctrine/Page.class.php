@@ -158,4 +158,53 @@ class Page extends BasePage {
 
         return $repository_url . $page_path;;
     }
+
+    /**
+     * getFormattedFirstCommitted()
+     *
+     * @return DateTime nullや0の場合はブランクを返す
+     */
+    public function  getFormattedFirstCommitted()
+    {
+        if (is_null($this->getFirstCommitted())) {
+            return '';
+        }
+        try {
+            $date = $this->getDatetimeObject('first_committed');
+        } catch (Exception $e) {
+            return '';
+        }
+
+        if ($date->getTimestamp() > 0) {
+            return $date->format('Y/m/d');
+        } else {
+            return '';
+        }
+    }
+
+    /**
+     * updateLastUpdated()
+     *
+     * @return
+     */
+    public function updateLastUpdated()
+    {
+        $commit = CommitTable::getLatestCommit($this->getId());
+        $this->setLastUpdated($commit->getCommittedAt());
+        $this->setLastUpdatedYm((int)$commit->getDateTimeObject('committed_at')->format('Ym'));
+        $this->save();
+    }
+
+    /**
+     * updateFirstCommitted()
+     *
+     * @return
+     */
+    public function updateFirstCommitted()
+    {
+        $commit = CommitTable::getFirstCommit($this->getId());
+        $this->setFirstCommitted($commit->getCommittedAt());
+        $this->setFirstCommittedYm((int)$commit->getDateTimeObject('committed_at')->format('Ym'));
+        $this->save();
+    }
 }

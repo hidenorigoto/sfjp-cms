@@ -56,7 +56,11 @@ new sfDatabaseManager($configuration);
 Doctrine_Core::loadData(dirname(__FILE__).'/PageFixture.yml');
 
 
-$t = new lime_test(28);
+
+
+
+
+$t = new lime_test(31);
 
 
 // construct
@@ -258,3 +262,42 @@ $t->is(
     'このページのgithub上のコミット履歴のURLを取得する。'
     );
 
+// getFormattedFirstCommitted
+$page = PageTable::getInstance()->findOneByPath('/foo/bar');  // page1
+$t->diag('getFormattedFirstCommitted()');
+$t->is(
+    $page->getFormattedFirstCommitted(),
+    '2010/05/09',
+    'ページの、フォーマット済初回コミット日付'
+    );
+
+
+$page = new Page();
+$page->setRepository($repo);
+$page->setPath('/path/to2');
+$page->setContentRaw('content_raw');
+$page->setContentType('content_type');
+$page->setContentRendered('content_rendered');
+$page->setTitle('title');
+$page->setIndexJson('index_json');
+$page->setLastUpdated('2010/01/02 03:04:05');
+$page->save();
+
+$page = PageTable::getInstance()->findOneByPath('/path/to2');  // page1
+$t->diag('getFormattedFirstCommitted()');
+$t->is(
+    $page->getFormattedFirstCommitted(),
+    '',
+    'ページの、フォーマット済初回コミット日付 値未設定'
+    );
+
+$page->setFirstCommitted(0);
+$page->save();
+
+$page = PageTable::getInstance()->findOneByPath('/path/to2');  // page1
+$t->diag('getFormattedFirstCommitted()');
+$t->is(
+    $page->getFormattedFirstCommitted(),
+    '',
+    'ページの、フォーマット済初回コミット日付 値0'
+    );
