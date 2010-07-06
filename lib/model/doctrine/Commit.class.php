@@ -32,4 +32,20 @@ class Commit extends BaseCommit {
 
         return $url;
     }
+
+    /**
+     * Commit::postSave()
+     * レコード保存時のフック
+     *
+     * @param mixed $event
+     * @return
+     */
+    public function postSave($event)
+    {
+        $page = $this->getPage();
+
+        // 関連するページの最終更新日、初回コミット日を更新する。
+        $page->updateLastUpdated();
+        $page->updateFirstCommitted();
+    }
 }
