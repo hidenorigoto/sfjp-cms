@@ -304,16 +304,6 @@ EOF;
 
             // 保存する。
             $page->save();
-
-            // ページの最終コミット日時を更新する。
-            $commit = CommitTable::getLatestCommit($page->getId());
-            $page->setLastUpdated($commit->getCommittedAt());
-
-            // ページの最初のコミット日時を更新する。
-            $commit = CommitTable::getFirstCommit($page->getId());
-            $page->setFirstCommitted($commit->getCommittedAt());
-
-            $page->save();
         }
 
 
