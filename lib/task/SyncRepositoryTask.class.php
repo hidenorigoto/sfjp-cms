@@ -186,7 +186,6 @@ EOF;
 
             // ページごとにコミット履歴を取得する。
             $commits = $git->getCommits('master', $file_path);
-            $new_commit_found = false;
             foreach ($commits as $commit) {
                 // 既存ページの場合はコミットがすでに取り込み済かチェックする。
                 $commit_record = null;
