@@ -72,7 +72,7 @@ EOF;
         $this->log(sprintf('リポジトリ %s の同期を開始します', $repository->getRepositoryName()));
 
         // リポジトリキャッシュルートディレクトリ
-        $cache_root = sfConfig::get('sf_root_dir') . '/data/repos/';
+        $cache_root = sfConfig::get('sf_root_dir') . '/../data/repos/';
         $dir_root   = $cache_root . $repository->getCacheKey();
         $do_clone   = false;
 
